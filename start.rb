@@ -1,4 +1,5 @@
 require_relative 'near_earth_objects'
+require_relative 'table'
 
 puts "________________________________________________________________________________________________________________________________"
 puts "Welcome to NEO. Here you will find information about how many meteors, astroids, comets pass by the earth every day. \nEnter a date below to get a list of the objects that have passed by the earth on that day."
@@ -7,9 +8,6 @@ print ">>"
 
 date = gets.chomp
 astroid_details = NearEarthObjects.find_neos_by_date(date)
-# astroid_list = astroid_details[:astroid_list]
-# total_number_of_astroids = astroid_details[:total_number_of_astroids]
-# largest_astroid = astroid_details[:biggest_astroid]
 astroid_list = astroid_details.neos[:astroid_list]
 total_number_of_astroids = astroid_details.neos[:total_number_of_astroids]
 largest_astroid = astroid_details.neos[:biggest_astroid]
