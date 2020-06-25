@@ -23,11 +23,18 @@ class Table
 
   def format_row_data(row_data, column_info)
     row = row_data.keys.map { |key| row_data[key].ljust(column_info[key][:width]) }.join(' | ')
-    puts "| #{row} |"
+    p "| #{row} |"
   end
 
-  def make_rows
+  def create_rows
     @astroid_details.neos[:astroid_list].each { |astroid| format_row_data(astroid, @column_data) }
+  end
+
+  def make_whole_table
+    p divider
+    p header
+    create_rows
+    p divider
   end
 
 

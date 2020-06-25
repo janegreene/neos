@@ -32,11 +32,11 @@ class TableTest < Minitest::Test
      assert_equal expected, @table.divider
    end
 
-   def test_it_can_make_rows
+   def test_it_can_create_rows
     astroid_details = NearEarthObjects.find_neos_by_date('2019-03-30')
     table = Table.new(astroid_details)
     row_one_data = {:name=>"(2019 GD4)", :diameter=>"61 ft", :miss_distance=>"911947 miles"}
-    assert_equal row_one_data, table.make_rows[0]
+    assert_equal row_one_data, table.create_rows[0]
    end
 
 end
