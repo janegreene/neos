@@ -1,6 +1,6 @@
 class Table
-  def initialize(astroid_details)
-    @astroid_details = astroid_details
+  def initialize(asteroid_details)
+    @asteroid_details = asteroid_details
     @column_labels = { name: "Name", diameter: "Diameter", miss_distance: "Missed The Earth By:" }
     @column_data = column_data()
   end
@@ -9,7 +9,7 @@ class Table
     @column_labels.each_with_object({}) do |(col, label), hash|
       hash[col] = {
         label: label,
-        width: [@astroid_details.neos[:astroid_list].map { |astroid| astroid[col].size }.max, label.size].max}
+        width: [@asteroid_details.neos[:asteroid_list].map { |asteroid| asteroid[col].size }.max, label.size].max}
     end
   end
 
@@ -27,7 +27,7 @@ class Table
   end
 
   def create_rows
-    @astroid_details.neos[:astroid_list].each { |astroid| format_row_data(astroid, @column_data) }
+    @asteroid_details.neos[:asteroid_list].each { |asteroid| format_row_data(asteroid, @column_data) }
   end
 
   def make_whole_table
@@ -36,8 +36,5 @@ class Table
     create_rows
     p divider
   end
-
-
-
 
 end
